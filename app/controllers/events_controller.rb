@@ -6,17 +6,19 @@ class EventsController < ApplicationController
     @events = current_user.events
   end
 
-  def show; end
+  def show
+    @categories =@event.categories
+  end
 
   def new
     @event = current_user.events.build
   end
 
   def create
-    @event = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: "Event created"
+      redirect_to @event, notice: "event created"
     else
       render :new
     end
@@ -25,8 +27,8 @@ class EventsController < ApplicationController
   def edit; end
 
   def update
-    if @event.update(room_params)
-      redirect_to @event, notice: "Event updated"
+    if @event.update(event_params)
+      redirect_to @event, notice: "event updated"
     else
       render :edit
     end
@@ -42,8 +44,7 @@ class EventsController < ApplicationController
     params
       .require(:event)
       .permit(
-        :name
+        :home
       )
   end
-
 end
