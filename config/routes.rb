@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show]
-  resources :rooms, except: [:destroy]
+  resources :events, except: [:destroy]
 
 end

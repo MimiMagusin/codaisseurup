@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.destroy_all
+
+miriam = User.create(email: "miriam@codaisseurbnb.com", password: "1234567")
+
+event = Event.create!(name: "Music Poetry Candlelight Night", description: "Share your accoustic music and poetry", location: "In the building", active:true, user: miriam)
