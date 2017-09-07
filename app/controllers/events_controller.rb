@@ -31,23 +31,23 @@ class EventsController < ApplicationController
 
   def edit
     if current_user.id == @event.user.id
-      @photos = @event.photos
-        image_params.each do |image|
-          @event.photos.create(image: image)
-        end
-    redirect_to edit_event_path(@event), notice: "Event successfully updated"
-    else
-      redirect_to root_path, notice: "You don't have permission."
-    end
+     @photos = @event.photos
+   else
+     redirect_to root_path, notice: "You don't have permission."
+   end
   end
 
   def update
-    if @event.update(event_params)
-      redirect_to @event, notice: "event updated"
-    else
-      render :edit
+  if @event.update(event_params)
+    image_params.each do |image|
+      @event.photos.create(image: image)
     end
+
+    redirect_to edit_event_path(@event), notice: "Event successfully updated"
+  else
+    render :edit
   end
+end
 
   private
 
@@ -61,5 +61,9 @@ class EventsController < ApplicationController
       .permit(
         :name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, category_ids: []
       )
+  end
+
+  def image_params
+    params[:images].present? ? params.require(:images) : []
   end
 end
