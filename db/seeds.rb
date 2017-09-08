@@ -12,6 +12,7 @@ Event.destroy_all
 Profile.destroy_all
 Photo.destroy_all
 Category.destroy_all
+Registration.destroy_all
 
 #category
 music = Category.create(name: "Music")
@@ -36,3 +37,7 @@ photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dwgyjfcoy/im
 photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dwgyjfcoy/image/upload/v1504786178/food_ibrk6i.jpg", event: event_3)
 photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dwgyjfcoy/image/upload/v1504786178/together_v6rmur.jpg", event: event_4)
 photo5 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dwgyjfcoy/image/upload/v1504772724/sample.jpg", event: event_1)
+
+#registrations
+Registration.create!(event: event_1, user: miriam, price: 10, guests_count: 3)
+Registration.create!(event: event_1, user: wouter, price: 11,  guests_count: 2)
