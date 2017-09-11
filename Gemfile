@@ -79,3 +79,4 @@ gem 'carrierwave', '0.11.2'
 gem 'cloudinary', '1.2.3'
 
 gem 'active_model_serializers'
+gem 'has_secure_token'

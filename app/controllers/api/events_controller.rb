@@ -12,10 +12,10 @@ class Api::EventsController < Api::BaseController
   end
 
   def create
-    event = Event.new(event_params)
+    event = @user.events.build(event_params)
 
     if event.save
-      render status: 200, json: event
+      render status: 201, json: event
     else
       render status: 422, json: {
         errors: event.errors
