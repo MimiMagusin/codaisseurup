@@ -20,4 +20,8 @@ Rails.application.routes.draw do
     resources :events
   end
 
+  namespace :api do
+    resources :categories
+  end
+
 end
