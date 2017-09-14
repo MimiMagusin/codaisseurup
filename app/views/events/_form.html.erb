@@ -49,6 +49,16 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label>Starts at:</label>
+    <%= f.text_field :starts_at %>
+  </div>
+
+  <div class="form-group">
+    <label>Ends at:</label>
+    <%= f.text_field :ends_at %>
+  </div>
+
   <label>Publish this event?</label>
 
   <div class="form-group">
@@ -70,4 +80,18 @@
 <div id="photos">
   <%= render 'photos/list' %>
 </div>
+
+<script>
+  $(function() {
+
+    $('#event_starts_at').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+
+    $('#event_ends_at').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+
+    });
+</script>
 <% end %>

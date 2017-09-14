@@ -80,3 +80,4 @@ gem 'cloudinary', '1.2.3'
 
 gem 'active_model_serializers'
 gem 'has_secure_token'
+gem 'jquery-ui-rails', '~> 5.0.5'
